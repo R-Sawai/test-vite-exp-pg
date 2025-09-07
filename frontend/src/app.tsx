@@ -12,16 +12,22 @@ export const App: FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+    <div className="h-screen bg-gray-200 flex items-center justify-center">
+      <div className="bg-white rounded-xl p-6 shadow flex flex-col items-center gap-4">
+        <button
+          className="bg-blue-200 p-2 rounded-xl cursor-pointer"
+          onClick={() => setCount((count) => count + 1)}
+        >
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-        <p>Now time is {time}</p>
+        {time ? (
+          <p>
+            Now time is
+            <label className="bg-amber-200 rounded-xl px-2">{time}</label>
+          </p>
+        ) : (
+          <p className="bg-amber-200 rounded-xl px-2">fetch Error</p>
+        )}
       </div>
     </div>
   );
